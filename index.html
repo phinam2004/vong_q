@@ -86,9 +86,7 @@
       callback && callback([rand, chances]);
     },
     gotBack: function (data) {
-      if (data == null) {
-        Swal.fire("Chương trình kết thúc", "Đã hết phần thưởng", "error");
-      } else if (data == "Chúc bạn may mắn lần sau") {
+       if (data == "Chúc bạn may mắn lần sau") {
         Swal.fire("Bạn không trúng thưởng", data, "error");
         playSound("matluot");
       } else {
