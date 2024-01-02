@@ -89,14 +89,14 @@
     },
     gotBack: function (data) {
       if (data == null) {
-         Swal.fire("Chúc mừng bạn đã trúng", "Đã hết phần thưởng", "error");
+         //Swal.fire("Chúc mừng bạn đã trúng", "Đã hết phần thưởng", "error");
       } else if (data == "Chúc bạn may mắn lần sau") {
         Swal.fire("Bạn không trúng thưởng", data, "error");
         playSound("matluot");
       } else {
         Swal.fire("Chúc mừng bạn đã trúng", data, "success").then(function () {
           //playSound("dangquay");
-          spinWheel();
+         // spinWheel();
         });
       }
     },
