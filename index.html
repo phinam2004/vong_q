@@ -105,17 +105,22 @@
       callback && callback([rand, chances]);
     },
     gotBack: function (data) {
-  if (data == null) {
-    Swal.fire("Chương trình kết thúc", "Đã hết phần thưởng", "error");
-  } else if (data == "Chúc bạn may mắn lần sau") {
-    Swal.fire("Bạn không trúng thưởng", data, "error");
-    playSound("matluot");
-  } else {
-    Swal.fire("Chúc mừng bạn đã trúng", data, "success").then(function () {
-      //playSound("votay");
-      // Thực hiện quay vòng may mắn liên tục
-      spinWheel();
-    });
+  while (true) {
+    if (data == null) {
+      Swal.fire("Chương trình kết thúc", "Đã hết phần thưởng", "error");
+      break; // Thoát khỏi vòng lặp
+    } else if (data == "Chúc bạn may mắn lần sau") {
+      Swal.fire("Bạn không trúng thưởng", data, "error");
+      playSound("matluot");
+      break; // Thoát khỏi vòng lặp
+    } else {
+      Swal.fire("Chúc mừng bạn đã trúng", data, "success").then(function () {
+        //playSound("votay");
+        // Tiếp tục quay vòng
+        // Gọi lại hàm để lặp lại quá trình quay vòng
+        spinWheel();
+      });
+    }
   }
 },
 
@@ -125,7 +130,7 @@ spinWheel: function () {
 
   // Kết quả quay vòng may mắn
   var result = "Phần thưởng mới";
-  
+
   // Hiển thị kết quả
   if (result == "Chúc bạn may mắn lần sau") {
     Swal.fire("Bạn không trúng thưởng", result, "error");
@@ -133,7 +138,8 @@ spinWheel: function () {
   } else {
     Swal.fire("Chúc mừng bạn đã trúng", result, "success").then(function () {
       //playSound("votay");
-      // Tiếp tục quay vòng may mắn
+      // Tiếp tục quay vòng
+      // Gọi lại hàm để lặp lại quá trình quay vòng
       spinWheel();
     });
   }
