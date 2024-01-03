@@ -33,13 +33,13 @@
             Vòng Quay May Mắn
           </canvas>
         </div>
-        <a class="hc-luckywheel-btn" href="javascript:;" onclick="playSound('votay')">Quay</a>
+        <a class="hc-luckywheel-btn" href="javascript:;" onclick="playSound('dangquay')">Quay</a>
       </section>
     </div>
 
-    <audio id="votay" src="sound/dangquay.mp3"></audio>
+    <audio id="votay" src="sound/votay.mp3"></audio>
     <audio id="matluot" src="sound/matluot.mp3"></audio>
-    <audio id="dangquay" src="sound/votay.mp3"></audio>
+    <audio id="dangquay" src="sound/dangquay.mp3"></audio>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="js/hc-canvas-luckwheel.js"></script>
@@ -102,7 +102,7 @@
         playSound("matluot");
       } else {
         Swal.fire("Chúc mừng bạn đã trúng", data, "success").then(function () {
-          //playSound("votay");
+          playSound("votay");
         });
       }
     },
